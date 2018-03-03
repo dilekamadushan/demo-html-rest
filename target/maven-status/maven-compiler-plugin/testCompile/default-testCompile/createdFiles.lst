@@ -1,0 +1,5 @@
+org/madushan/demo/services/ProductServiceImplSpyTest.class
+org/madushan/demo/configuration/RepositoryConfiguration.class
+org/madushan/demo/repositories/ProductRepositoryTest.class
+org/madushan/demo/services/ProductServiceImplMockTest.class
+org/madushan/demo/SpringBootWebApplicationTests.class
