@@ -1,6 +1,7 @@
 package org.madushan.demo.services;
 
 import org.madushan.demo.domain.Encounter;
+import org.madushan.demo.domain.FormSubmission;
 import org.madushan.demo.repositories.EncounterRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,8 +33,13 @@ public class EncounterServiceImpl implements EncounterService {
     }
 
     @Override
-    public Encounter saveEncounter(Encounter encounter) {
+    public Encounter saveEncounter(FormSubmission formSubmission) {
         logger.debug("saveEncounter called");
+        Encounter encounter = new Encounter();
+        encounter.setFormId(formSubmission.getFormId());
+        encounter.setObservation(formSubmission.getObservation());
+        encounter.setProviderId(formSubmission.getProviderId());
+        encounter.setPatientId(formSubmission.getPatientId());
         return encounterRepository.save(encounter);
     }
 

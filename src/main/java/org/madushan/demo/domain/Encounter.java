@@ -15,15 +15,15 @@ public class Encounter {
 	//@ApiModelProperty(notes = "The database generated encounter ID")
 	private Integer id;
 	
-	//@ApiModelProperty(notes = "The patient of the Observation")
-	//private Observation observation;
+	private Integer patientId;
+
+	private Integer providerId;
 	
-	//@ApiModelProperty(notes = "The provider of the Observation")
-	@ElementCollection(targetClass=Provider.class)
-	private List<Provider> provider;
-	
-	//@ApiModelProperty(notes = "The created dateTime")
 	private Date date;
+	
+	private String observation;
+	
+	private Integer formId;
 	
 	public void setId(Integer id) {
 		this.id = id;
@@ -32,20 +32,33 @@ public class Encounter {
 	public Integer getId() {
 		return id;
 	}
-/*	
-	public void setObservation(Observation observation) {
+
+	public void setObservation(String observation) {
 		this.observation = observation;
 	}
 	
-	public Observation getObservation() {
+	public String getObservation() {
 		return observation;
-	}*/
-	
-	
-	
-	
-	public void setProvider(Provider provider) {
-		this.provider.add(provider);
 	}
+	
+	public void setProviderId(Integer providerId) {
+		this.providerId = providerId;
+	}
+	
+	public Integer getProvider() {
+		return providerId;
+	}
+	
+	public void setPatientId(Integer patientId) {
+		this.patientId = patientId;
+	}
+	
+	public Integer getPatientId() {
+		return patientId;
+	}
+	public void setFormId(Integer formId) {
+		this.formId = formId;
+	}
+	
 	
 }

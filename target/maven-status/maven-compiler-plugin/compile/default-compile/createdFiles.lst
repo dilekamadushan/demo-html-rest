@@ -1,3 +1,5 @@
+org/madushan/demo/services/HTMLPageService.class
+org/madushan/demo/controllers/EncounterController.class
 org/madushan/demo/services/CRUDService.class
 org/madushan/demo/config/SwaggerConfig.class
 org/madushan/demo/config/WebConfig.class
@@ -7,6 +9,7 @@ org/madushan/demo/controllers/IndexController.class
 org/madushan/demo/services/ProviderServiceImpl.class
 org/madushan/demo/domain/HTMLForm.class
 org/madushan/demo/config/SpringSecConfig.class
+org/madushan/demo/services/HTMLPageServiceImpl.class
 org/madushan/demo/services/PatientServiceImpl.class
 org/madushan/demo/controllers/HTMLFormController.class
 org/madushan/demo/repositories/ProviderRepository.class
@@ -21,8 +24,10 @@ org/madushan/demo/domain/Concept.class
 org/madushan/demo/domain/Encounter.class
 org/madushan/demo/services/ProductService.class
 org/madushan/demo/services/HTMLFormServiceImpl.class
+org/madushan/demo/repositories/HTMLPageRepository.class
 org/madushan/demo/repositories/PatientRepository.class
 org/madushan/demo/repositories/ProductRepository.class
+org/madushan/demo/domain/FormSubmission.class
 org/madushan/demo/domain/Item.class
 org/madushan/demo/SpringBootWebApplication.class
 org/madushan/demo/services/ConceptService.class
@@ -37,3 +42,4 @@ org/madushan/demo/repositories/HTMLFormRepository.class
 org/madushan/demo/repositories/EncounterRepository.class
 org/madushan/demo/services/ItemServiceImpl.class
 org/madushan/demo/services/ProductServiceImpl.class
+org/madushan/demo/domain/HTMLPage.class

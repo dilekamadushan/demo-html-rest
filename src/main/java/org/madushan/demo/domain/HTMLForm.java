@@ -21,9 +21,17 @@ public class HTMLForm {
 	private String description;
 	
 	//@ApiModelProperty(notes = "The set of observations")
-	@ElementCollection(targetClass=Observation.class)
-	private List<Observation> observations;
 	
+	private String observation;
+	
+	
+	public void setFormLabel(String stringLabel) {
+		this.formLabel = stringLabel;
+	}
+	
+	public String getFormLabel() {
+		return formLabel;
+	}
 	
 	public void setId(Integer id) {
 		this.id = id;
@@ -41,12 +49,13 @@ public class HTMLForm {
 		this.description = description;
 	}
 	
-	public void addObservation(Observation observation) {
-		this.observations.add(observation);
+	public void setObservation(String observation) {
+		this.observation =observation;
 	}
+
 	
-	public List<Observation> getObservations() {
-		return observations;
+	public String getObservations() {
+		return observation;
 	}
 	
 }

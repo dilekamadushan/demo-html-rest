@@ -12,34 +12,42 @@ import java.util.List;
 @Service
 public class HTMLFormServiceImpl implements HTMLFormService {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
-    private HTMLFormRepository formRepository;
+    private HTMLFormRepository htmlFormRepository;
 
     @Autowired
-    public void setFormRepository(HTMLFormRepository formRepository) {
-        this.formRepository = formRepository;
+    public void setFormRepository(HTMLFormRepository htmlFormRepository) {
+        
+    	this.htmlFormRepository = htmlFormRepository;
+    	
+    	HTMLForm htmlForm = new HTMLForm();
+    	htmlForm.setId(1);
+    	htmlForm.setDescription("To test");
+    	htmlForm.setFormLabel("Sample Label");
+    	htmlForm.setObservation("observation1");
+    	this.htmlFormRepository.save(htmlForm);
     }
 
     @Override
     public Iterable<HTMLForm> listAllHTMLForms() {
         logger.debug("listAllForms called");
-        return formRepository.findAll();
+        return  htmlFormRepository.findAll();
     }
 
     @Override
     public HTMLForm getHTMLFormById(Integer id) {
         logger.debug("getFormById called");
-        return formRepository.findOne(id);
+        return htmlFormRepository.findOne(id);
     }
 
     @Override
     public HTMLForm saveHTMLForm(HTMLForm HTMLForm) {
         logger.debug("saveForm called");
-        return formRepository.save(HTMLForm);
+        return htmlFormRepository.save(HTMLForm);
     }
 
     @Override
     public void deleteHTMLForm(Integer id) {
         logger.debug("deleteForm called");
-        formRepository.delete(id);
+	    htmlFormRepository.delete(id);
     }
 }

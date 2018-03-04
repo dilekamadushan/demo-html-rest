@@ -1,42 +1,31 @@
-/*
 package org.madushan.demo.domain;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.List;
 
-*/
 /**
- * Created by dileka on 3/3/18.
- *//*
-
+ * Created by dileka on 3/4/18.
+ */
+@Entity
 public class HTMLPage {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	//@ApiModelProperty(notes = "The database generated HTMLPage ID")
 	private Integer id;
 	
-	//@ApiModelProperty(notes = "The HTMLPage title")
 	private String title;
 	
-	//@ApiModelProperty(notes = "The HTMLPage header")
-	private String header;
 	
-	//@ApiModelProperty(notes = "The HTMLPage body")
 	private String body;
 	
-	//@ApiModelProperty(notes = "The HTMLPage footer")
-	private String footer;
-	
-	//@ApiModelProperty(notes = "The list of HTMLForms")
 	@ElementCollection(targetClass=HTMLForm.class)
 	private List<HTMLForm> htmlForms;
 	
-	//@ApiModelProperty(notes = "The HTMLPage message")
-	private String message;
+	@ElementCollection(targetClass=Encounter.class)
+	private List<Encounter> encounters;
+	
+	private String responseCode;
+	
 	
 	public void setId(Integer id) {
 		this.id = id;
@@ -55,40 +44,49 @@ public class HTMLPage {
 		this.title = title;
 	}
 	
-	public String getHeader() {
-		return header;
-	}
-	public void setHeader(String header) {
-		this.header = header;
-	}
-	
 	public void setBody(String body) {
 		this.body = body;
 	}
 	
-	public void setFooter(String header) {
-		this.footer = footer;
+	public String getBody() {
+		return body;
 	}
 	
-	public String getFooter() {
-		return  footer;
+	
+	public void setMessage(String responseCode) {
+		this.responseCode = responseCode;
 	}
 	
-	public void setMessage(String message) {
-		this.message = message;
+	public String  getResponseCode() {
+		return  responseCode;
 	}
 	
-	public String  getMessage() {
-		return  message;
+	public void   setResponseCode(String responseCode) {
+		this.responseCode =  responseCode;
 	}
 	
 	public void addForm(HTMLForm htmlForm){
 		htmlForms.add(htmlForm);
 	}
 	
+	public void addForm(List<HTMLForm> htmlForms){
+		htmlForms.addAll(htmlForms);
+	}
+	
 	public List<HTMLForm> getHTMLForms(){
 		return htmlForms;
 	}
 	
+	public void addEncounter(Encounter encounter){
+		encounters.add(encounter);
+	}
+	
+	public void addEncounter(List<Encounter> encounters){
+		encounters.addAll(encounters);
+	}
+	
+	public List<Encounter> getEncounters(){
+		return encounters;
+	}
+	
 }
-*/

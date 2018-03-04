@@ -15,15 +15,14 @@ public class Observation {
 	private Integer id;
 	
 	//@ApiModelProperty(notes = "The conceptId of the Observation")
-	@ElementCollection(targetClass=Concept.class)
-	private List<Concept> concepts;
+	private String concept;
 	
 	//@ApiModelProperty(notes = "The observation description")
 	private String description;
 	
 	//@ApiModelProperty(notes = "The Encounter of the observation")
-	@ElementCollection(targetClass=Encounter.class)
-	private List<Encounter> encounters;
+	@ElementCollection(targetClass=String.class)
+	private List<String> encounters;
 	
 	//@ApiModelProperty(notes = "The created dateTime")
 	private Date date;
@@ -36,16 +35,16 @@ public class Observation {
 		return id;
 	}
 	
-	public void setEncounter(Encounter encounter) {
+	public void setEncounter(String encounter) {
 		this.encounters.add(encounter);
 	}
 	
-	public List<Encounter> getEncounter() {
+	public List<String> getEncounter() {
 		return encounters;
 	}
 	
 	
-	public List<Concept> getConcept() {
-		return this.concepts;
+	public String getConcept() {
+		return this.concept;
 	}
 }
