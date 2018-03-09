@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -18,13 +19,6 @@ public class HTMLFormServiceImpl implements HTMLFormService {
     public void setFormRepository(HTMLFormRepository htmlFormRepository) {
         
     	this.htmlFormRepository = htmlFormRepository;
-    	
-    	HTMLForm htmlForm = new HTMLForm();
-    	htmlForm.setId(1);
-    	htmlForm.setDescription("To test");
-    	htmlForm.setFormLabel("Sample Label");
-    	htmlForm.setObservation("observation1");
-    	this.htmlFormRepository.save(htmlForm);
     }
 
     @Override

@@ -1,6 +1,7 @@
 package org.madushan.demo.domain;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -15,23 +16,16 @@ public class HTMLForm {
 	private Integer id;
 	
 	//@ApiModelProperty(notes = "The form label")
-	private String formLabel;
+	private String formXml;
+	
+	private Date createdDate;
 	
 	//@ApiModelProperty(notes = "The form description")
 	private String description;
 	
 	//@ApiModelProperty(notes = "The set of observations")
 	
-	private String observation;
-	
-	
-	public void setFormLabel(String stringLabel) {
-		this.formLabel = stringLabel;
-	}
-	
-	public String getFormLabel() {
-		return formLabel;
-	}
+	private String createdBy;
 	
 	public void setId(Integer id) {
 		this.id = id;
@@ -41,21 +35,36 @@ public class HTMLForm {
 		return id;
 	}
 	
-	public String getDescription() {
-		return description;
-	}
-	
 	public void setDescription(String description) {
 		this.description = description;
 	}
 	
-	public void setObservation(String observation) {
-		this.observation =observation;
+	public String getDescription() {
+		return description;
 	}
-
 	
-	public String getObservations() {
-		return observation;
+	public void setFormXml(String formXml) {
+		this.formXml = formXml;
+	}
+	
+	public String getFormXml() {
+		return formXml;
+	}
+	
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
+	}
+	
+	public Date getCreatedDate() {
+		return createdDate;
+	}
+	
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+	
+	public String getCreatedBy() {
+		return createdBy;
 	}
 	
 }

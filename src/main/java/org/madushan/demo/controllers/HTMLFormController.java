@@ -7,13 +7,9 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.madushan.demo.domain.HTMLForm;
 import org.madushan.demo.domain.HTMLPage;
-import org.madushan.demo.services.HTMLFormService;
-import org.madushan.demo.services.HTMLFormService;
 import org.madushan.demo.services.HTMLFormServiceImpl;
 import org.madushan.demo.services.HTMLPageServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,20 +20,15 @@ import java.util.List;
 public class HTMLFormController {
 
     private HTMLFormServiceImpl htmlFormService;
-	private HTMLPageServiceImpl htmlPageService;
 
     @Autowired 
 	    public void setHTMLFormService (HTMLFormServiceImpl htmlFormService){
 		    this.htmlFormService = htmlFormService;
 	    }
 	
-	@Autowired
-	public void setHTMLPageService(HTMLPageServiceImpl htmlPageService) {
-		this.htmlPageService = htmlPageService;
-	}
-	
-
-  @ApiOperation(value = "View a list of available htmlForms",response = HTMLPage.class)
+  @ApiOperation(value = "Get all html forms created by this user",
+		  response = HTMLForm.class,
+		  responseContainer = "List")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Successfully retrieved list"),
             @ApiResponse(code = 401, message = "You are not authorized to view the resource"),
@@ -48,53 +39,41 @@ public class HTMLFormController {
 
   
   @RequestMapping(value = "/htmlforms", method= RequestMethod.GET, produces = "application/json")
-    public HTMLPage list(Model model){
+    public List<HTMLForm> showHTMLForms(Model model){
         List<HTMLForm> htmlFormList = (List<HTMLForm>) htmlFormService.listAllHTMLForms();
-        HTMLPage htmlPage = htmlPageService.getHTMLPageById(1);
-       htmlPage.addForm(htmlFormList);
-        
-        return htmlPage;
+        return htmlFormList;
     }
 
-    @ApiOperation(value = "Search a htmlForm with an ID",response = HTMLForm.class)
+    @ApiOperation(value = "Search for a HTML Form with an ID ",response = HTMLForm.class)
     @RequestMapping(value = "/htmlforms/{id}", method= RequestMethod.GET, produces = "application/json")
-    public HTMLPage showHTMLForm(@PathVariable Integer id, Model model){
+    public HTMLForm showHTMLForm(@PathVariable Integer id, Model model){
        HTMLForm htmlForm = htmlFormService.getHTMLFormById(id);
-	    HTMLPage htmlPage = htmlPageService.getHTMLPageById(2);
-	    htmlPage.addForm(htmlForm);
-	
-	    return htmlPage;
+	   return htmlForm;
     }
 
     @ApiOperation(value = "Add a htmlForm")
-    @RequestMapping(value = "/htmlforms", method = RequestMethod.POST, produces = "application/json")
-    public HTMLPage saveHTMLForm(@RequestBody HTMLForm htmlForm){
+    @RequestMapping(value = "/htmlforms", method = RequestMethod.POST)
+    public void saveHTMLForm(@RequestBody HTMLForm htmlForm){
     	
         htmlFormService.saveHTMLForm(htmlForm);
-	    HTMLPage htmlPage = htmlPageService.getHTMLPageById(3);
-	
-	    return htmlPage;
     }
 
     @ApiOperation(value = "Update a htmlForm")
-    @RequestMapping(value = "/htmlforms/{id}", method = RequestMethod.PUT, produces = "application/json")
-    public HTMLPage updateHTMLForm(@PathVariable Integer id, @RequestBody HTMLForm htmlForm){
+    @RequestMapping(value = "/htmlforms/{id}", method = RequestMethod.PUT)
+    public void updateHTMLForm(@PathVariable Integer id, @RequestBody HTMLForm htmlForm){
         HTMLForm storedHTMLForm = htmlFormService.getHTMLFormById(id);
         storedHTMLForm.setDescription(htmlForm.getDescription());
+	    storedHTMLForm.setFormXml(htmlForm.getFormXml());
+	    storedHTMLForm.setCreatedDate(htmlForm.getCreatedDate());
+	    storedHTMLForm.setCreatedBy(htmlForm.getCreatedBy());
      
         htmlFormService.saveHTMLForm(storedHTMLForm);
-	    HTMLPage htmlPage = htmlPageService.getHTMLPageById(4);
-	
-	    return htmlPage;
     }
 
     @ApiOperation(value = "Delete a htmlForm")
-    @RequestMapping(value="/htmlforms/{id}", method = RequestMethod.DELETE, produces = "application/json")
-    public HTMLPage delete(@PathVariable Integer id){
+    @RequestMapping(value="/htmlforms/{id}", method = RequestMethod.DELETE)
+    public void deleteHTMLForm(@PathVariable Integer id){
         htmlFormService.deleteHTMLForm(id);
-	    HTMLPage htmlPage = htmlPageService.getHTMLPageById(5);
-	
-	    return htmlPage;
 
     }
 
