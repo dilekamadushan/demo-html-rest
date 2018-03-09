@@ -77,16 +77,6 @@ public class HTMLPage {
 		return htmlForms;
 	}
 	
-	public void addEncounter(Encounter encounter){
-		encounters.add(encounter);
-	}
-	
-	public void addEncounter(List<Encounter> encounters){
-		encounters.addAll(encounters);
-	}
-	
-	public List<Encounter> getEncounters(){
-		return encounters;
-	}
+
 	
 }

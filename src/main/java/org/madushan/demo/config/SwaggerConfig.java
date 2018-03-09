@@ -24,13 +24,13 @@ public class SwaggerConfig {
     }
     private ApiInfo metaData() {
         ApiInfo apiInfo = new ApiInfo(
-                "Spring Boot REST API",
-                "Spring Boot REST API for Online Store",
+                "REST API",
+                "HTML Form Entry REST API Demo",
                 "1.0",
-                "Terms of service",
-                new Contact("John Thompson", "https://springframework.guru/about/", "john@springfrmework.guru"),
-               "Apache License Version 2.0",
-                "https://www.apache.org/licenses/LICENSE-2.0");
+                "",
+                new Contact("Dileka Madushan", "", "dileka.14@cse.mrt,ac.lk"),
+               "",
+                "");
         return apiInfo;
     }
 }

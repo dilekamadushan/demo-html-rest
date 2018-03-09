@@ -1,3 +1,4 @@
+/*
 package org.madushan.demo.controllers;
 
 
@@ -6,10 +7,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/index")
 public class IndexController {
     @RequestMapping(method= RequestMethod.GET)
     String index(){
         return "index";
     }
 }
+*/

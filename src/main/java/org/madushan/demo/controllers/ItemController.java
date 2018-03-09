@@ -1,3 +1,4 @@
+/*
 package org.madushan.demo.controllers;
 
 import io.swagger.annotations.Api;
@@ -72,3 +73,4 @@ public class ItemController {
     }
 
 }
+*/
