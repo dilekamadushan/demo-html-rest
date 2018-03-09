@@ -1,3 +1,4 @@
+/*
 package org.madushan.demo.controllers;
 
 
@@ -13,3 +14,4 @@ public class IndexController {
         return "index";
     }
 }
+*/
